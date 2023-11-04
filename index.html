@@ -6,8 +6,26 @@
   <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
   <script>
+    let counter = 0;
     const root = document.getElementById("root");
-    const span = React.createElement("span", null, "Total clicks: 0");
-    ReactDOM.render(span, root);
+    const span = React.createElement(
+      "span",
+      {
+        onMouseEnter: () => console.log("mouse enter"),
+      },
+      "Total clicks: 0"
+    );
+    const btn = React.createElement(
+      "button",
+      {
+        onClick: () => counter++,
+        style: {
+          backgroundColor: "tomato",
+        },
+      },
+      "Click me"
+    );
+    const container = React.createElement("div", null, [span, btn]);
+    ReactDOM.render(container, root);
   </script>
 </html>
